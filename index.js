@@ -1,33 +1,63 @@
-let final=[];
-let finalIndex = 0;
+let myNum="0";
+let firstNum = null;
+let secondNum = null;
+let operator = "Mike"
+let counter = 1;
 
-document.getElementById("numDisplayBox").innerHTML = final;//this line is a place holder.
-final.splice(0, final.length);//this line clears the variable for a placeholder
+let final;
 
-let myNum="testNum";
+document.getElementById("numDisplayBox").innerHTML = myNum;//this line is a place holder.
+
+
 
 function numAdd(myNum){
-    
-    if (myNum = "testNum"){     //This is the default number, so this is checking for "blank" values
-    final.push(myNum);
-    console.log(final);  
-    document.getElementById("numDisplayBox").innerHTML = final;  
+console.log(myNum);
+console.log(firstNum);
+console.log(secondNum);
+console.log(counter);
+
+    if (myNum == "0"){     //This is the default number, so this is checking for "blank" values
+        myNum = myNum.toString();
+        firstNum = myNum;   
     }
     else if (myNum + 1 == 1 + myNum && myNum + 2 == 2 + myNum){    //This is checking if it's a valid number
-    let finalIndex = lastIndexOf(final);                  //this section should add previous number and current number as text (5 + 4 = 54), then cast it back to a number
-    let final[finalIndex] = final[finalIndex].toString();
-    let myNum = mynum.toString();
-    let final[finalIndex] = final[finalIndex] + myNum;
-    let final[finalIndex] = final[finalIndex].toString();
-    console.log(final);  
-    document.getElementById("numDisplayBox").innerHTML = final;  
+        if (counter == 1){
+            if (firstNum == null){
+                firstNum = myNum.toString();
+            }
+            else if (firstNum != null){
+                firstNum = firstNum + myNum.toString();
+            }
+        }
+        else if (counter == 2){
+            if (secondNum == null){
+                secondNum = myNum.toString();
+            }
+            else if (secondNum != null){
+                secondNum = secondNum + myNum.toString();
+            }
+        }
+
     }
+    else if (myNum == "+"){
+        if (operator == "Mike"){
+            operator = myNum;
+        }
+
+    }
+    else if (myNum == "-"){
+
+    }
+
+    document.getElementById("numDisplayBox").innerHTML = firstNum;  
 }
 
 function delAll(){
-    final.splice(0, final.length);
-    console.log(final);
-    document.getElementById("numDisplayBox").innerHTML = final;
-    let myNum = "testNum"
+    myNum = "0"
+    firstNum = null;
+    secondNum = null;
+    counter = 1;
+    operator = "Mike"
+    document.getElementById("numDisplayBox").innerHTML = myNum;  
 }
 
