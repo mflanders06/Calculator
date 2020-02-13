@@ -192,3 +192,24 @@ function equalButton(){
     }
 
 }
+
+function decimalButton(){
+    if (counter == 1){
+        if (firstNum == null){}
+        calc1 = firstNum.lastIndexOf(".");
+        if (calc1 != -1){}    //checking to see if there's already a decimal
+        else if (calc1 == -1){
+            firstNum = firstNum + ".";
+            document.getElementById("numDisplayBox").innerHTML = firstNum;  
+        }
+    }
+    else if (counter == 2){
+        if (secondNum == null){}
+        calc1 = secondNum.lastIndexOf(".");
+        if (calc1 != -1){}
+        else if (calc1 == -1){
+            secondNum = secondNum + ".";
+            document.getElementById("numDisplayBox").innerHTML = firstNumHolder + " " + operator + " " + secondNum;
+        }
+    }
+}
