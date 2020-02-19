@@ -1,8 +1,10 @@
+
+
 let myNum="Use mouse to click buttons";
 let firstNum = null;
 let firstNumHolder = null;
 let secondNum = null;
-let operator = "Mike"
+let operator = "Mike";
 let counter = 1;
 let calc1 = null;
 let calc2 = null;
@@ -162,19 +164,20 @@ function equalButton(){
         }
         else if (secondNum != null){
             if (operator === "+"){
-                calc1 = parseFloat(firstNum);
-                calc2 = parseFloat(secondNum);
-                calc3 = calc1 + calc2;
-                firstNum = calc3.toString();
+                calc1 = Number(firstNum);
+                calc2 = Number(secondNum);
+                //calc3 = calc1 + calc2;
+                firstNum = (calc1 + calc2).toString();
+                //firstNum = calc3.toString();
                 secondNum = null;
                 operator = "Mike";
                 counter = 1;   
                 document.getElementById("numDisplayBox").innerHTML = firstNum;
     
-                //console.log("calc1 is: " + calc1);
-                //console.log("calc2 is: "+ calc2);
-                //console.log("calc3 is " + calc3);
-                //console.log("firstNum is: " + firstNum)
+                console.log("calc1 is: " + calc1);
+                console.log("calc2 is: "+ calc2);
+                console.log("calc3 is " + calc3);
+                console.log("firstNum is: " + firstNum)
     
             }
             else if (operator === "-"){
@@ -213,3 +216,11 @@ function decimalButton(){
         }
     }
 }
+
+
+
+
+//create method - insertdigit that passes all buttons
+//or create method for numbers, create second method for operators
+//also, check for case where Number(e) === 0
+
