@@ -7,23 +7,23 @@
 
     <p class="topBox" id="numDisplayBox"></p>
 
-    <button type="button1" onclick="numAdd(1)">1</button>
-    <button type="button2" onclick="numAdd(2)">2</button>
-    <button type="button3" onclick="numAdd(3)">3</button>
-    <button type="plusButton" onclick="plusButton()">+</button>
+    <button type="button1" onclick="buttonPress('1')">1</button>
+    <button type="button2" onclick="buttonPress('2')">2</button>
+    <button type="button3" onclick="buttonPress('3')">3</button>
+    <button type="plusButton" onclick="buttonPress('+')">+</button>
     <br> <!--row ending-->
-    <button type="button4" onclick="numAdd(4)">4</button>
-    <button type="button5" onclick="numAdd(5)">5</button>
-    <button type="button6" onclick="numAdd(6)">6</button>
-    <button type="plusButton" onclick="minusButton()">-</button>
+    <button type="button4" onclick="buttonPress('4')">4</button>
+    <button type="button5" onclick="buttonPress('5')">5</button>
+    <button type="button6" onclick="buttonPress('6')">6</button>
+    <button type="plusButton" onclick="buttonPress('-')">-</button>
     <br>    
-    <button type="button7" onclick="numAdd(7)">7</button>
-    <button type="button8" onclick="numAdd(8)">8</button>    
-    <button type="button9" onclick="numAdd(9)">9</button><br>
-    <button type="buttonDecimal" onclick="decimalButton()">.</button>
-    <button type="button0" onclick="numAdd(0)">0</button>
-    <button type="buttonEqual" onclick="equalButton()">=</button><br>    
-    <button type="clear" onclick="delAll()">Clear</button>
+    <button type="button7" onclick="buttonPress('7')">7</button>
+    <button type="button8" onclick="buttonPress('8')">8</button>    
+    <button type="button9" onclick="buttonPress('9')">9</button><br>
+    <button type="buttonDecimal" onclick="buttonPress(`.`)">.</button>
+    <button type="button0" onclick="buttonPress('0')">0</button>
+    <button type="buttonEqual" onclick="buttonPress('=')">=</button><br>    
+    <button type="clear" onclick="buttonPress('clear')">Clear</button>
 
     <script src="index.js"></script> 
 </body>
