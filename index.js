@@ -15,95 +15,84 @@ else if (counter == 2){
     document.getElementById("numDisplayBox").innerText = firstNum + " " + operator + " " + newNum;
 }
 
-
-
-function buttonPress(newNum){
-    if (newNum === 'clear'){
-        newNum = 'Use mouse to click buttons';
-        counter = 1;
-        firstNum = null;
-        secondNum = null;
-        operator = null;
-        calc1 = null;
-        calc2 = null;
-        document.getElementById("numDisplayBox").innerText = newNum;
-    }
-    else if (newNum != 'clear' && counter === 1){
+function numPress(newNum){
+    if (counter === 1){                     //begin eval of first number
         if (firstNum === null){
             firstNum = newNum;
+        }
+        else {
+            firstNum = firstNum + newNum;
+        }
+    document.getElementById("numDisplayBox").innerText = firstNum;
+    }                                       //end eval of first number
+
+    else if (counter === 2){                //begin eval of second number
+        if (operator === null){
+            firstNum = newNum;
+            counter = 1;
             document.getElementById("numDisplayBox").innerText = firstNum;
         }
-        else if (firstNum != null){
-            if (newNum >= '0' && newNum <= '9'){
-                firstNum = firstNum + newNum;
+        else {
+            if (secondNum === null){
+                secondNum = newNum;
+            }
+            else {
+                secondNum = secondNum + newNum;
+            }
+        document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator + ' ' + secondNum;
+        }                                   //end eval of second number
+    }
+console.log('FirstNum: ' + firstNum);
+console.log('SecondNum: ' + secondNum);
+console.log('operator: ' + operator);
+console.log('counter: ' + counter);
+console.log('calc1: ' + calc1);
+console.log('calc2: ' + calc2);
+}
+
+
+function operatorPress(newNum){
+    if (counter === 1){
+        if (firstNum === null){
+            if (newNum === '-'){
+                firstNum = newNum;
                 document.getElementById("numDisplayBox").innerText = firstNum;
             }
-            else if (newNum === '+'){
-                counter = 2;
-                operator = '+';
-                document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
-            }
-            else if (newNum === '-'){
-                counter = 2;
-                operator = '-';
-                document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
-            }
-            else if (newNum === '='){
-                operator = null;
-                document.getElementById("numDisplayBox").innerText = firstNum;
-            }
+        }
+        else if (firstNum === '-'){}
+        else {
+            operator = newNum;
+            counter = 2;
+            document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
         }
 
     }
-    else if (newNum != 'clear' && counter === 2){
+    else if (counter === 2){
         if (operator === null){
-            if (newNum >= '0' && newNum <= '9'){
-                firstNum = newNum;
-                counter = 1;
-            }
-            else if (newNum === '+'){
-                firstNum = calculateIt(firstNum, operator, secondNum);
-                operator = '+';
-                secondNum = null;
-                document.getElementById("numDisplayBox").innterText = firstNum + ' ' + operator;
-            }
-            else if (newNum === '-'){
-                firstNum = calculateIt(firstNum, operator, secondNum);
-                operator = '-';
-                secondNum = null;
-                document.getElementById("numDisplayBox").innterText = firstNum + ' ' + operator;
-            }
+            operator = newNum;
+            document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
         }
-        else if (operator != null){
-            if (secondNum === null){
-                secondNum = newNum;
-                document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator + ' ' + secondNum;
-            }
-            else if (secondNum != null){
-                if (newNum >= '0' && newNum <= '9'){
-                    secondNum = secondNum + newNum;
-                    document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator + ' ' + secondNum;
-                }
-                else if (newNum === '+'){
-                    firstNum = calculateIt(firstNum, operator, secondNum);
-                    operator = '+';
-                    secondNum = null;
-                    document.getElementById("numDisplayBox").innterText = firstNum + ' ' + operator;
-                }
-                else if (newNum === '-'){
-                    firstNum = calculateIt(firstNum, operator, secondNum);
-                    operator = '-';
-                    secondNum = null;
-                    document.getElementById("numDisplayBox").innterText = firstNum + ' ' + operator;
-                }
-                else if (newNum === '='){
-                    firstNum = calculateIt(firstNum, operator, secondNum);
-                    operator = null;
-                    secondNum = null;
-                    document.getElementById("numDisplayBox").innerText = firstNum;
-                }
-            }
+        else {
+            firstNum = calculateIt(firstNum, operator, secondNum);
+            secondNum = null;
+            operator = newNum;
+            document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
         }
+    }
+console.log('FirstNum: ' + firstNum);
+console.log('SecondNum: ' + secondNum);
+console.log('operator: ' + operator);
+console.log('counter: ' + counter);
+console.log('calc1: ' + calc1);
+console.log('calc2: ' + calc2);
+}
+
+function equalPress(){
+    if (counter === 2 && operator != null){
+        firstNum = calculateIt(firstNum, operator, secondNum);
+        operator = null;
+        secondNum = null;
+        document.getElementById("numDisplayBox").innerText = firstNum;
     }
 console.log('FirstNum: ' + firstNum);
 console.log('SecondNum: ' + secondNum);
@@ -118,13 +107,21 @@ function calculateIt(firstNum, operator, secondNum){
     calc2 = Number(secondNum);
     if (operator === '+'){
         firstNum = calc1 + calc2;
-        calc1 = null;
-        calc2 = null;
+        return firstNum;
     }
-    if (operator === '-'){
+    else if (operator === '-'){
         firstNum = calc1 - calc2;
-        calc1 = null;
-        calc2 = null;
+        return firstNum;
     }
-    return firstNum;
+}
+
+function clearPress(){
+    newNum = 'Use mouse to click buttons';
+    counter = 1;
+    firstNum = null;
+    secondNum = null;
+    operator = null;
+    calc1 = null;
+    calc2 = null;
+    document.getElementById("numDisplayBox").innerText = newNum;
 }
