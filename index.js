@@ -56,7 +56,7 @@ function buttonPress(newNum){
 
     }
     else if (newNum != 'clear' && counter === 2){
-        if (operator = null){
+        if (operator === null){
             if (newNum >= '0' && newNum <= '9'){
                 firstNum = newNum;
                 counter = 1;
@@ -100,11 +100,17 @@ function buttonPress(newNum){
                     firstNum = calculateIt(firstNum, operator, secondNum);
                     operator = null;
                     secondNum = null;
-                    document.getEelementById("numDisplayBox").innerText = firstNum;
+                    document.getElementById("numDisplayBox").innerText = firstNum;
                 }
             }
         }
     }
+console.log('FirstNum: ' + firstNum);
+console.log('SecondNum: ' + secondNum);
+console.log('operator: ' + operator);
+console.log('counter: ' + counter);
+console.log('calc1: ' + calc1);
+console.log('calc2: ' + calc2);
 }
 
 function calculateIt(firstNum, operator, secondNum){
