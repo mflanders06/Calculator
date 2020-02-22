@@ -102,6 +102,30 @@ console.log('calc1: ' + calc1);
 console.log('calc2: ' + calc2);
 }
 
+function deciPress(newNum){
+    if (counter === 1){
+        if (firstNum === null){
+            firstNum = newNum;
+        }
+        else if (firstNum.includes('.')){}
+        else {
+            firstNum = firstNum + newNum;
+        }
+        document.getElementById("numDisplayBox").innerText = firstNum;
+    }
+    else if (counter === 2){
+        if (secondNum === null){
+            secondNum = newNum;
+        }
+        else if (secondNum.includes('.')){}
+        else {
+            secondNum = secondNum + newNum;
+        }
+        document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator + ' ' + secondNum;
+    }
+}
+
+
 function calculateIt(firstNum, operator, secondNum){
     calc1 = Number(firstNum);
     calc2 = Number(secondNum);
