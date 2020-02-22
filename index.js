@@ -61,9 +61,11 @@ function operatorPress(newNum){
         }
         else if (firstNum === '-'){}
         else {
-            operator = newNum;
-            counter = 2;
-            document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
+            if (Number(firstNum)){
+                operator = newNum;
+                counter = 2;
+                document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
+            }    
         }
 
     }
@@ -73,10 +75,12 @@ function operatorPress(newNum){
             document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
         }
         else {
-            firstNum = calculateIt(firstNum, operator, secondNum);
-            secondNum = null;
-            operator = newNum;
-            document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
+            if (Number(secondNum)){
+                firstNum = calculateIt(firstNum, operator, secondNum);
+                secondNum = null;
+                operator = newNum;
+                document.getElementById("numDisplayBox").innerText = firstNum + ' ' + operator;
+            }    
         }
     }
 console.log('FirstNum: ' + firstNum);
@@ -136,6 +140,21 @@ function calculateIt(firstNum, operator, secondNum){
     else if (operator === '-'){
         firstNum = calc1 - calc2;
         return firstNum;
+    }
+    else if (operator === 'x'){
+        firstNum = calc1 * calc2;
+        return firstNum;
+    }
+    else if (operator === '÷'){
+        if (calc2 === 0){
+            clearPress();
+            document.getElementById("numDisplayBox").innerText = 'ERROR DIV BY ZERO';
+            return firstNum;
+        }
+        else {
+            firstNum = calc1 / calc2;
+            return firstNum;
+        }
     }
 }
 
