@@ -1,4 +1,29 @@
 .topBox {
+    box-align:  center;
     border-style:solid;
     border-color:#287EC7;
+    width: 150px;
    }
+
+.allButton {
+    padding: 2%;
+    border-radius: 6px;
+}
+
+.numButton {
+    background-color: white;
+}
+
+.operatorButton {
+    background-color: lightgray;
+}
+
+.clearButton {
+
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}

@@ -4,30 +4,32 @@
 </head>
 <body>
 
+    <div class= "container"> 
+        <button class="topBox" id="numDisplayBox"></button>
+        <br>
 
-    <p class="topBox" id="numDisplayBox"></p>
-
-    <button type="button1" onclick="numPress('1')">1</button>
-    <button type="button2" onclick="numPress('2')">2</button>
-    <button type="button3" onclick="numPress('3')">3</button>
-    <button type="plusButton" onclick="operatorPress('+')">+</button>
-    <br> <!--row ending-->
-    <button type="button4" onclick="numPress('4')">4</button>
-    <button type="button5" onclick="numPress('5')">5</button>
-    <button type="button6" onclick="numPress('6')">6</button>
-    <button type="plusButton" onclick="operatorPress('-')">-</button>
-    <br>    
-    <button type="button7" onclick="numPress('7')">7</button>
-    <button type="button8" onclick="numPress('8')">8</button>    
-    <button type="button9" onclick="numPress('9')">9</button>
-    <button type="buttonMultiply" onclick="operatorPress('x')">x</button>
-    <br>
-    <button type="buttonDecimal" onclick="deciPress(`.`)">.</button>
-    <button type="button0" onclick="numPress('0')">0</button>
-    <button type="buttonEqual" onclick="equalPress('=')">=</button>
-    <button type="buttonDivide" onclick="operatorPress('÷')">÷</button>
-    <br>    
-    <button type="clear" onclick="clearPress('clear')">Clear</button>
+        <button class="allButton numButton" onclick="numPress('1')">1</button>
+        <button class="allButton numButton" onclick="numPress('2')">2</button>
+        <button class="allButton numButton" onclick="numPress('3')">3</button>
+        <button class="allButton operatorButton" onclick="operatorPress('+')">+</button>
+        <br> <!--row ending-->
+        <button class="allButton numButton" onclick="numPress('4')">4</button>
+        <button class="allButton numButton" onclick="numPress('5')">5</button>
+        <button class="allButton numButton" onclick="numPress('6')">6</button>
+        <button class="allButton operatorButton" onclick="operatorPress('-')">-</button>
+        <br>    
+        <button class="allButton numButton" onclick="numPress('7')">7</button>
+        <button class="allButton numButton" onclick="numPress('8')">8</button>    
+        <button class="allButton numButton" onclick="numPress('9')">9</button>
+        <button class="allButton operatorButton" onclick="operatorPress('x')">x</button>
+        <br>
+        <button class="allButton numButton" onclick="deciPress(`.`)">.</button>
+        <button class="allButton numButton" onclick="numPress('0')">0</button>
+        <button class="allButton operatorButton" onclick="equalPress('=')">=</button>
+        <button class="allButton operatorButton" onclick="operatorPress('÷')">÷</button>
+        <br>    
+        <button class="allButton clearButton" onclick="clearPress('clear')">Clear</button>
+    </div>   
 
     <script src="index.js"></script> 
 </body>
